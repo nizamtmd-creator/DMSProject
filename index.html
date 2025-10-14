@@ -17,6 +17,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+	
+	<!-- Include Font Awesome (if not already added) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     
     <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
@@ -207,6 +210,38 @@
         .section-py {
             padding: 2rem 0;
         }
+				 html {
+			scroll-behavior: smooth;
+		  }
+
+		  /* Back to Top button styling */
+		  #backToTopBtn {
+			display: none; /* Hidden by default */
+			position: fixed;
+			bottom: 40px;
+			right: 40px;
+			z-index: 99;
+			border: none;
+			outline: none;
+			background-color: #0d6efd; /* Bootstrap blue */
+			color: white;
+			cursor: pointer;
+			padding: 14px 17px;
+			border-radius: 50%;
+			font-size: 18px;
+			box-shadow: 0 4px 8px rgba(0,0,0,0.25);
+			transition: all 0.3s ease;
+		  }
+
+		  #backToTopBtn:hover {
+			background-color: #0b5ed7;
+			transform: translateY(-4px);
+			box-shadow: 0 6px 10px rgba(0,0,0,0.3);
+		  }
+
+		  #backToTopBtn i {
+			font-size: 18px;
+		  }
     </style>
 </head>
 <body>
@@ -495,8 +530,8 @@ col-lg-4">
                                 <i class="bi bi-telephone-fill" style="color: var(--primary-color);"></i>
                             </div>
                             <div>
-                                <div style="font-size: 0.875rem; font-weight: 600;">Phone</div>
-                                <div style="font-size: 0.75rem; color: var(--muted-foreground);">812-618-8224</div>
+                                <div style="font-size: 0.875rem; font-weight: 600;color: var(--muted-foreground);">Phone</div>
+                                <div style="font-size: 0.95rem;font-weight: 700; ">812-618-8224</div>
                             </div>
                         </div>
                         <div class="d-flex align-items-center gap-3 mb-3">
@@ -504,8 +539,8 @@ col-lg-4">
                                 <i class="bi bi-envelope-fill" style="color: var(--secondary-color);"></i>
                             </div>
                             <div>
-                                <div style="font-size: 0.875rem; font-weight: 600;">Email</div>
-                                <div style="font-size: 0.75rem; color: var(--muted-foreground);">info@diligentmanagementsolutions.com</div>
+                                <div style="font-size: 0.875rem; font-weight: 600;color: var(--muted-foreground);">Email</div>
+                                <div style="font-size: 0.95rem;font-weight: 700; ">info@diligentmanagementsolutions.com</div>
                             </div>
                         </div>
                         <div class="d-flex align-items-center gap-3">
@@ -513,8 +548,8 @@ col-lg-4">
                                 <i class="bi bi-geo-alt-fill" style="color: var(--accent-color);"></i>
                             </div>
                             <div>
-                                <div style="font-size: 0.875rem; font-weight: 600;">Location</div>
-                                <div style="font-size: 0.75rem; color: var(--muted-foreground);">Po Box 46, Newburgh, IN 47630</div>
+                                <div style="font-size: 0.875rem; font-weight: 600;color: var(--muted-foreground);">Location</div>
+                                <div style="font-size: 0.95rem;font-weight: 700;">Po Box 46, Newburgh, IN 47630</div>
                             </div>
                         </div>
                     </div>
@@ -548,6 +583,10 @@ col-lg-4">
             
         </div>
     </section>
+	<!-- 🔼 Back to Top Button -->
+<button id="backToTopBtn" title="Go to top">
+  <i class="fa-solid fa-arrow-up"></i>
+</button>
 
     <!-- Footer -->
     <footer style="background-color: var(--dark-bg); color: var(--background); padding: 3rem 0;">
@@ -661,13 +700,26 @@ col-lg-4">
             alert('Thank you for your interest! We will contact you shortly.');
             this.reset();
         });
+		
+		const backToTopBtn = document.getElementById("backToTopBtn");
+
+		  // Show/hide button on scroll
+		  window.addEventListener("scroll", () => {
+			if (window.scrollY > 300) {
+			  backToTopBtn.style.display = "block";
+			} else {
+			  backToTopBtn.style.display = "none";
+			}
+		  });
+
+		  // Smooth scroll to top on click
+		  backToTopBtn.addEventListener("click", () => {
+			window.scrollTo({ top: 0, behavior: "smooth" });
+		  });
     </script>
 </body>
 </html>
-      </script>
-   </body>
-
-</html>
+     
 
 
 
